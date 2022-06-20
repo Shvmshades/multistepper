@@ -3,5 +3,6 @@ class WelcomesController < ApplicationController
   end
 
   def index
+#    debugger
   end
 end

@@ -8,4 +8,11 @@ Rails.application.routes.draw do
   end
   root "welcomes#new"
   get '/user' => 'welcomes#index'
+  get 'billing_index' => 'billing#index'
+  get '/card/new' => 'billing#new_card', as: :add_payment_method
+  post "/card" => "billing#create_card", as: :create_payment_method
+  get '/success' => 'billing#success', as: :success
+
+  resources :products, only: [:new, :show, :create,:index]
+
 end

@@ -185,29 +185,31 @@ body {
 <%= form_for(@user, url: step2_path, method: :POST, :format => :html) do |f| %>
   <%= render "users/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <div class="row">
+    <div class="col-lg-6 m-auto">
+  <div class="form-floating mb-3">
+  <%= f.email_field :email, autofocus: true, class: "form-control", autocomplete: "email", required: true %>
+  <label for="floatingInput"><%= f.label :email %></label>
+</div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+  <div class="form-floating mb-3">
+  <!-- <input type="password" class="form-control" id="floatingPassword" placeholder="Password"> -->
+   <%= f.password_field :password,class:"form-control", autocomplete: "new-password", required: true%>
+  <label for="floatingPassword"><%= f.label :password %></label>
+</div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="form-floating">
+  <!-- <input type="password" class="form-control" id="floatingPassword" placeholder="Password"> -->
+   <%= f.password_field :password_confirmation,class:"form-control", autocomplete: "new-password", required: true%>
+  <label for="floatingPassword"><%= f.label :password_confirmation %></label>
+</div>
+</div>
+</div>
+<br>
+  <div class="actions my-2">
+    <%= f.submit "NEXT",class: "btn btn-info" %>
   </div>
 <% end %>
 </center>
    
 <%= render "users/shared/links" %>
-

@@ -1,0 +1,6 @@
+<center><%= link_to 'Add product', new_product_path%><br></center>
+<% @products.each do |f|%>
+name: <%= f.name%>&nbsp;&nbsp;&nbsp;
+price<%= f.price%>&nbsp;&nbsp;
+<%= link_to "show", product_path(f.id)%><br>
+<%end%>

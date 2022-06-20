@@ -23,7 +23,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    debugger
+#    debugger
     @user = User.new(email: session[:user]["email"], password: session[:user]["password"],name: session[:user]["name"],father_name: session[:user]["father_name"],dob: session[:user]["dob"],address: params[:user]["address"],aadhar_no: params[:user]["aadhar_no"])
     if @user.save
       session[:user] = nil 

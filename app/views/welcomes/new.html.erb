@@ -180,5 +180,9 @@ body {
 
 </style>
 <center><h1>welcome to the multistepper demo<br>
-<%=link_to "register", new_user_registration_path %></h1></center>
+<%=link_to "register", new_user_registration_path %></h1>
 
+<% unless current_user.nil?%>
+<%= link_to 'products', products_path, method: :get%>
+<%end%>
+</center>
